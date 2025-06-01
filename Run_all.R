@@ -18,7 +18,7 @@ library(RColorBrewer)
 library(Matrix)
 
 ################## Setup
-setwd("C:/Users/pound/Dropbox/Open Papers/Block Correlation Matrices")
+setwd("set your base working directory here")
 
 source("Code/Functions/build_multiplex_bindings.R")
 source("Code/Functions/generate_multiplex_correlation_matrix.R")

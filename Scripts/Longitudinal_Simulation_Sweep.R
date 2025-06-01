@@ -269,10 +269,10 @@ Frobenius_norm = function(x,y){
 
 # Get random Frobenius_norm fit from prior
 test_F_norm_prior = function(data){
-  scrap = rep(NA, 500)
+  scrap = rep(NA, 1000)
   lay = dim(data)[1]
 
-  for(i in 1:500){
+  for(i in 1:1000){
   scrap[i] = Frobenius_norm(data, rlkjcorr( 1 , lay , eta=1.5 )) 
   }
   
@@ -285,10 +285,10 @@ test_F_norm_prior = function(data){
 
 # Get posterior Frobenius_norm fit 
 test_F_norm_post = function(data, post){
-  scrap = rep(NA, 500)
+  scrap = rep(NA, 1000)
   lay = dim(data)[2]
 
-  for(i in 1:500){
+  for(i in 1:1000){
   scrap[i] = Frobenius_norm(data, post[i,,]) 
   }
   
@@ -313,7 +313,7 @@ run_and_parse = function(XXX){
                           mode="mcmc",
                           bandage_penalty = -1,
                           stan_mcmc_parameters = list(chains = 1, parallel_chains = 1, refresh = 1,
-                                                        iter_warmup = 1000, iter_sampling = 500,
+                                                        iter_warmup = 1000, iter_sampling = 1000,
                                                         max_treedepth = 12, adapt_delta = 0.98, init=0)
  )
 
@@ -334,7 +334,7 @@ run_and_parse = function(XXX){
                           mode="mcmc",
                           bandage_penalty = 0.01,
                           stan_mcmc_parameters = list(chains = 1, parallel_chains = 1, refresh = 1,
-                                                        iter_warmup = 1000, iter_sampling = 500,
+                                                        iter_warmup = 1000, iter_sampling = 1000,
                                                         max_treedepth = 12, adapt_delta = 0.98, init=0)
 )
 
